@@ -20,6 +20,13 @@ class PageController extends Controller
 		abort(404);
 	}
 
+	public function sitemap(Request $request)
+	{
+		$content = view()->make('sitemap');
+
+		return response()->make($content)->header('Content-Type', 'text/xml');
+	}
+
 	protected function metaTitle()
 	{
 		return "Simple Lorem Ipsum";

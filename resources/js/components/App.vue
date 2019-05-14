@@ -54,7 +54,7 @@
 
 		<footer class="row">
 			<div class="col-12 col-lg-8 text-center">
-				&copy; {{ currentYear }} Simple Lorem by <a href="https://gtcrais.net" target="_blank">GTCrais</a>
+				&copy; {{ currentYear }} Simple Lorem by <!--<a href="https://gtcrais.net" target="_blank">GTCrais</a>--> GTCrais
 			</div>
 		</footer>
 	</div>

@@ -11,5 +11,6 @@
 |
 */
 
+Route::get('fetch-sitemap', ['as' => 'fetchSitemap', 'uses' => 'PageController@sitemap']);
 Route::get('/')->uses('PageController@show');
 Route::match(['get', 'post'], '{segments}')->uses('PageController@show404')->where('segments', '(.*)');
