@@ -4,15 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Simple Lorem</title>
+        <title>{{ $metaTitle }}</title>
+		<meta name="description" content="{{ $metaDescription }}" />
+		<meta name="keywords" content="{{ $metaKeywords }}" />
+
+		<meta property="og:title" content="{{ $metaTitle }}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="{{ request()->url() }}" />
+		<meta property="og:image" content="http://{{ request()->server("HTTP_HOST") }}/img/shareImg.png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:description" content="{{ $metaDescription }}">
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:400" rel="stylesheet">
 
 		<link href="/css/vendor.css?v={{ config('assetversioning.app.cssVendors') }}" rel="stylesheet"/>
 		<link href="/css/app.css?v={{ config('assetversioning.app.css') }}" rel="stylesheet"/>
 
-		{{--<link rel="icon" href="/img/favicon.png" type="image/x-icon">--}}
+		<link rel="icon" href="/img/favicon.png" type="image/x-icon">
     </head>
     <body>
 

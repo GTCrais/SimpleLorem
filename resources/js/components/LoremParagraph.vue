@@ -73,6 +73,8 @@
 					paragraphIndex: this.index,
 					action: 'increase'
 				});
+
+				eventHub.$emit('save-settings');
 			},
 
 			reduceSentences() {
@@ -84,6 +86,8 @@
 					paragraphIndex: this.index,
 					action: 'reduce'
 				});
+
+				eventHub.$emit('save-settings');
 			},
 
 			removeParagraph() {
@@ -92,6 +96,8 @@
 				}
 
 				this.$store.commit('removeParagraph', this.index);
+
+				eventHub.$emit('save-settings');
 			}
 		},
 

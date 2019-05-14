@@ -146,6 +146,10 @@ class StoreManager
 				state.paragraphs.splice(paragraphIndex, 1);
 			},
 
+			removeParagraphs: function(state) {
+				state.paragraphs = [];
+			},
+
 			updateParagraphLength: function(state, data) {
 				let paragraph = state.paragraphs[data.paragraphIndex];
 

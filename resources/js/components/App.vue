@@ -26,6 +26,17 @@
 
 			<div class="col-12 col-lg-4 d-flex justify-content-center mb-5 mb-lg-0">
 
+				<div class="reset-container d-flex justify-content-end">
+					<button type="button"
+							class="btn btn-outline-warning btn-reset control-button"
+							:class="{ disabled: !paragraphsCookie }"
+							@click="reset"
+					>
+						<i class="fa fa-undo"></i>
+					</button>
+				</div>
+
+
 				<button type="button"
 						class="btn btn-outline-success btn-copy-all control-button"
 						@click="copyAll"
@@ -58,15 +69,28 @@
 
 		data: function() {
 			return {
-
+				paragraphsCookie: null
 			}
 		},
 
 		mounted: function() {
+			this.setCookie();
 			this.setDefaultParagraphs();
 		},
 
 		methods: {
+			reset: function() {
+				this.$cookie.delete('slparagraphs');
+				this.paragraphsCookie = null;
+				this.$store.commit('removeParagraphs');
+				this.setDefaultParagraphs();
+			},
+
+			saveSettings: function() {
+				this.$cookie.set('slparagraphs', JSON.stringify(this.paragraphs), { expires: '2Y' });
+				this.setCookie();
+			},
+
 			copyAll: function() {
 				let comp = this;
 				let text = this.composedSentences.join("\n\n");
@@ -92,12 +116,20 @@
 				setTimeout(() => {
 					window.scrollTo(0, document.body.scrollHeight);
 				}, 2);
+
+				this.saveSettings();
 			},
 
 			setDefaultParagraphs: function() {
-				for (let defaultParagraph of this.defaultParagraphs) {
+				let defaultParagraphs = this.paragraphsCookie ? JSON.parse(this.paragraphsCookie) : this.defaultParagraphs;
+
+				for (let defaultParagraph of defaultParagraphs) {
 					this.$store.commit('addParagraph', Object.assign({}, defaultParagraph));
 				}
+			},
+
+			setCookie: function() {
+				this.paragraphsCookie = this.$cookie.get('slparagraphs');
 			},
 
 			getReducedParagraphIndex: function(index) {
@@ -152,6 +184,14 @@
 			currentYear: function() {
 				return this.$store.getters.currentYear;
 			}
+		},
+
+		created: function() {
+			eventHub.$on('save-settings', this.saveSettings);
+		},
+
+		beforeDestroy: function() {
+			eventHub.$off('save-settings', this.saveSettings);
 		}
 	}
 </script>
