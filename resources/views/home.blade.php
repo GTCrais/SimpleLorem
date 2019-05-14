@@ -62,6 +62,21 @@
 
 		</div>
 
+		@if (app()->environment() == 'production')
+
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-54122971-21"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+
+				gtag('config', 'UA-54122971-21', { 'anonymize_ip': true });
+			</script>
+
+		@endif
+
+
 		<script> var currentYear = {{ date('Y') }}; </script>
 
 		<script src="/js/manifest.js?v={{ config('assetversioning.app.js') }}"></script>
