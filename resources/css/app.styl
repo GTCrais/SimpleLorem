@@ -1,0 +1,168 @@
+
+lgXlMedia = "screen and (min-width: 992px)"
+
+successColor = #00cf25
+primaryColor = #0093ff
+primaryHover = #0075d7
+warningColor = #ff9b00
+disabledGray = #b1b1b1
+
+body
+  font-family 'Nunito', sans-serif
+  font-weight 400
+  font-size 18px
+  color #25292d
+  
+h1
+  margin-bottom 30px
+  padding-right 20px
+  
+a
+  color primaryColor
+  
+  &:hover
+    text-decoration none
+    color primaryHover
+  
+.transparent
+  color transparent
+  
+.btn-outline-success
+  color successColor
+  border-color successColor !important
+
+  &:hover
+    background-color successColor
+
+.btn-outline-primary
+  color primaryColor
+  border-color primaryColor !important
+  
+  &:hover
+    background-color primaryColor
+
+.btn-outline-warning
+  color warningColor
+  border-color warningColor !important
+  
+  &:hover
+    background-color warningColor
+    color white !important
+
+.btn
+  &.disabled
+    color disabledGray !important
+    
+    &:hover
+      color disabledGray !important
+      background-color white !important
+    
+    border-color disabledGray !important
+    cursor default
+    box-shadow none !important
+
+#vue-wrapper
+  
+  .main-container
+    padding-top 50px
+    min-height 100vh
+    max-width 1254px
+  
+  .paragraph-container
+    position relative
+    margin-bottom 25px
+    
+  .controls
+    position relative
+    top 5px
+    
+  .control-button
+    opacity 0.7
+    width 25px
+    height 25px
+    padding 0
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+    border-radius 50%
+    font-size 12px
+    
+    &.btn-copy
+      width 35px
+      height 35px
+      font-size 14px
+      margin-bottom 8px
+      
+    &.btn-reduce
+      margin-bottom 14px
+      
+    &.btn-add
+      width 40px
+      height 40px
+      
+    &.btn-copy-all
+      width 115px
+      height 114px
+      border-width 5px
+      font-size 38px
+      
+      @media lgXlMedia
+        position fixed
+        top calc(50vh - 57px - 52px)
+      
+      .icon-container
+        display block
+        width 60px
+        height 65px
+        position relative
+      
+      i
+        transform scale(-1, 1)
+        position absolute
+        background-color white
+        transition background-color 0.15s ease-in-out
+        
+        &.first
+          z-index 5
+          top 0
+          left 0
+          
+        &.second
+          z-index 10
+          top 13px
+          left 13px
+          
+        &.third
+          z-index 15
+          top 26px
+          left 26px
+          
+      &:hover
+        i
+          background-color successColor
+          
+      &:active
+        border-color #28a745 !important
+        
+        i
+          background-color #28a745
+          
+      &:focus
+      &:active
+        box-shadow 0 0 0 0.4rem rgba(40, 167, 69, 0.5)
+  
+  p
+    margin 0
+    padding 14px
+    margin-right 6px
+    border-radius 8px
+    border 5px solid white
+    transition border-color 0.07s linear
+    
+    &.flash
+      border-color #94dea2
+    
+footer
+  padding 14px
+  font-size 16px
