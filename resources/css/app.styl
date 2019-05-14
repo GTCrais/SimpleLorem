@@ -113,6 +113,7 @@ a
       border-width 5px
       font-size 38px
       background-color white
+      z-index 10
       
       @media lgXlMedia
         position fixed
@@ -169,9 +170,14 @@ a
       font-size 14px
       
   .reset-container
-    position fixed
-    top calc(50vh - 65px - 52px)
+    position absolute
+    top -10px
+    z-index 5
     width 128px
+  
+    @media lgXlMedia
+      position fixed
+      top calc(50vh - 65px - 52px)
   
   p
     margin 0
