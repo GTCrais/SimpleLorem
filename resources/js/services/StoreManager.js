@@ -26,6 +26,7 @@ class StoreManager
 	{
 		return {
 			currentYear: currentYear,
+			mode: 'light',
 			defaultParagraphs: [
 				{
 					length: 8
@@ -131,6 +132,10 @@ class StoreManager
 
 			baseParagraphs: function(state) {
 				return state.baseParagraphs;
+			},
+
+			mode: function(state) {
+				return state.mode;
 			}
 		}
 	}
@@ -162,6 +167,14 @@ class StoreManager
 				if (!paragraph.length) {
 					this.commit('removeParagraph', data.paragraphIndex);
 				}
+			},
+
+			toggleMode: function(state) {
+				state.mode = (state.mode === 'light') ? 'dark' : 'light';
+			},
+
+			setMode: function(state, mode) {
+				state.mode = mode;
 			}
 		}
 	}

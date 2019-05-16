@@ -8,16 +8,26 @@ lgXlMedia = "screen and (min-width: 992px)"
 // disabledGray = #b1b1b1
 
 successColor = #55dc6d
+successActiveColor = #28a745
 primaryColor = #42afff
 primaryHover = #398dd4
 warningColor = #ffb84a
 disabledGray = #dedede
+flashColor = #94dea2
+textColor = #25292d
+
+// Dark Mode
+successColorDark = #28b745
+backgroundColorDark = #0c0c0c
+textColorDark = #e2e2e2
+disabledGrayDark = #5d5d5d
+flashColorDark = #28b745
 
 body
   font-family 'Nunito', sans-serif
   font-weight 400
   font-size 18px
-  color #25292d
+  color textColor
   
 h1
   margin-bottom 30px
@@ -32,13 +42,6 @@ a
   
 .transparent
   color transparent
-  
-.btn-outline-success
-  color successColor
-  border-color successColor !important
-
-  &:hover
-    background-color successColor
 
 .btn-outline-primary
   color primaryColor
@@ -54,142 +57,218 @@ a
   &:hover
     background-color warningColor
     color white !important
-
+    
 .btn
   &.disabled
-    color disabledGray !important
-    
-    &:hover
-      color disabledGray !important
-      background-color white !important
-    
-    border-color disabledGray !important
     cursor default
     box-shadow none !important
 
 #vue-wrapper
+  position relative
   
-  .main-container
-    padding-top 50px
-    min-height 100vh
-    max-width 1254px
+  .wrapper
+    position relative
+    width 100%
+    transition background-color 0.07s linear
   
-  .paragraph-container
-    position relative
-    margin-bottom 25px
+    .main-container
+      padding-top 50px
+      min-height 100vh
+      max-width 1254px
     
-  .controls
-    position relative
-    top 5px
+    .paragraph-container
+      position relative
+      margin-bottom 25px
+      
+    .controls
+      position relative
+      top 5px
+      
+    .control-button
+      opacity 1
+      width 25px
+      height 25px
+      padding 0
+      display flex
+      flex-direction column
+      align-items center
+      justify-content center
+      border-radius 50%
+      font-size 12px
+      
+      &.btn-copy
+        width 35px
+        height 35px
+        font-size 14px
+        margin-bottom 8px
+        
+      &.btn-reduce
+        margin-bottom 14px
+        
+      &.btn-add
+        width 40px
+        height 40px
+        
+      &.btn-copy-all
+        width 115px
+        height 114px
+        border-width 5px
+        font-size 38px
+        background-color white
+        z-index 10
+        
+        @media lgXlMedia
+          position fixed
+          top calc(50vh - 57px - 52px)
+        
+        .icon-container
+          display block
+          width 60px
+          height 65px
+          position relative
+        
+        i
+          transform scale(-1, 1)
+          position absolute
+          background-color white
+          transition background-color 0.15s ease-in-out
+          
+          &.first
+            z-index 5
+            top 0
+            left 0
+            
+          &.second
+            z-index 10
+            top 13px
+            left 13px
+            
+          &.third
+            z-index 15
+            top 26px
+            left 26px
+            
+        &:focus
+        &:active
+          box-shadow 0 0 0 0.4rem rgba(40, 167, 69, 0.5)
+          
+      &.btn-reset
+        margin-left 47px
+        width 35px
+        height 35px
+        font-size 14px
+        
+      &.btn-switch-mode
+        position absolute
+        right 20px
+        top 20px
+        
+    .reset-container
+      position absolute
+      top -10px
+      z-index 5
+      width 128px
     
-  .control-button
-    opacity 1
-    width 25px
-    height 25px
-    padding 0
-    display flex
-    flex-direction column
-    align-items center
-    justify-content center
-    border-radius 50%
-    font-size 12px
-    
-    &.btn-copy
-      width 35px
-      height 35px
-      font-size 14px
-      margin-bottom 8px
-      
-    &.btn-reduce
-      margin-bottom 14px
-      
-    &.btn-add
-      width 40px
-      height 40px
-      
-    &.btn-copy-all
-      width 115px
-      height 114px
-      border-width 5px
-      font-size 38px
-      background-color white
-      z-index 10
-      
       @media lgXlMedia
         position fixed
-        top calc(50vh - 57px - 52px)
-      
-      .icon-container
-        display block
-        width 60px
-        height 65px
-        position relative
-      
-      i
-        transform scale(-1, 1)
-        position absolute
-        background-color white
-        transition background-color 0.15s ease-in-out
-        
-        &.first
-          z-index 5
-          top 0
-          left 0
-          
-        &.second
-          z-index 10
-          top 13px
-          left 13px
-          
-        &.third
-          z-index 15
-          top 26px
-          left 26px
-          
-      &:hover
-        background-color successColor
-        
-        i
-          background-color successColor
-          
-      &:active
-        border-color #28a745 !important
-        background-color #28a745
-        
-        i
-          background-color #28a745
-          
-      &:focus
-      &:active
-        box-shadow 0 0 0 0.4rem rgba(40, 167, 69, 0.5)
-        
-    &.btn-reset
-      margin-left 47px
-      width 35px
-      height 35px
-      font-size 14px
-      
-  .reset-container
-    position absolute
-    top -10px
-    z-index 5
-    width 128px
-  
-    @media lgXlMedia
-      position fixed
-      top calc(50vh - 65px - 52px)
-  
-  p
-    margin 0
-    padding 14px
-    margin-right 6px
-    border-radius 8px
-    border 5px solid white
-    transition border-color 0.07s linear
+        top calc(50vh - 65px - 52px)
     
-    &.flash
-      border-color #94dea2
+    p
+      margin 0
+      padding 14px
+      margin-right 6px
+      border-radius 8px
+      border 5px solid white
+      transition border-color 0.07s linear
+      
+    &.light-mode
+      .btn
+        &.disabled
+          color disabledGray !important
+          
+          &:hover
+            color disabledGray !important
+            background-color white !important
+          
+          border-color disabledGray !important
+          
+        &.btn-outline-success
+          color successColor
+          border-color successColor !important
+        
+          &:hover
+            color white
+            background-color successColor
+  
+      p
+        border 5px solid white
+        
+        &.flash
+          border-color flashColor
+        
+      .control-button
+        &.btn-copy-all
+          &:hover
+            background-color successColor
     
+            i
+              background-color successColor
+              
+          &:active
+            border-color #28a745 !important
+            background-color #28a745
+          
+            i
+              background-color #28a745
+        
+    &.dark-mode
+      background-color backgroundColorDark
+      color textColorDark
+  
+      .btn
+        &.disabled
+          color disabledGrayDark !important
+      
+          &:hover
+            color disabledGrayDark !important
+            background-color backgroundColorDark !important
+        
+          border-color disabledGrayDark !important
+          
+        &.btn-outline-success
+          color successColorDark
+          border-color successColorDark !important
+    
+          &:hover
+            color white
+            background-color successColorDark
+      
+      .control-button
+        &.btn-copy-all
+          background-color backgroundColorDark
+          
+          i
+            background-color backgroundColorDark
+            
+          &:hover
+            background-color successColorDark
+    
+            i
+              background-color successColorDark
+              
+          &:active
+            border-color successActiveColor !important
+            background-color successActiveColor
+    
+            i
+              background-color successActiveColor
+              
+      p
+        border 5px solid backgroundColorDark
+  
+        &.flash
+          border-color flashColorDark
+
 footer
   padding 14px
   font-size 16px
