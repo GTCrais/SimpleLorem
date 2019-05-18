@@ -29,13 +29,13 @@ class StoreManager
 			mode: 'light',
 			defaultParagraphs: [
 				{
-					length: 8
+					length: 7
 				},
 				{
 					length: 4
 				},
 				{
-					length: 16
+					length: 14
 				}
 			],
 			paragraphs: [],
