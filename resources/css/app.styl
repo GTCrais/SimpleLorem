@@ -43,6 +43,13 @@ a
 .transparent
   color transparent
 
+.btn
+  border 2px solid transparent
+  
+  &.disabled
+    cursor default
+    box-shadow none !important
+
 .btn-outline-primary
   color primaryColor
   border-color primaryColor !important
@@ -57,11 +64,6 @@ a
   &:hover
     background-color warningColor
     color white !important
-    
-.btn
-  &.disabled
-    cursor default
-    box-shadow none !important
 
 #vue-wrapper
   position relative
