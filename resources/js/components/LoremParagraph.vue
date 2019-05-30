@@ -6,6 +6,7 @@
 
 		<div class="controls right-controls d-flex flex-column align-items-center">
 			<button type="button"
+					title="Copy"
 					class="btn btn-outline-success btn-copy control-button"
 					v-clipboard:copy="composedParagraph"
 					v-clipboard:success="flashParagraph"
@@ -13,20 +14,23 @@
 				<i class="fa fa-copy"></i>
 			</button>
 			<button type="button"
+					title="Expand"
 					class="btn btn-outline-primary btn-increase control-button mb-1"
 					@click="increaseSentences"
 			>
-				<i class="fa fa-expand"></i>
+				<i class="fa fa-plus"></i>
 			</button>
 			<button type="button"
+					title="Shrink"
 					class="btn btn-outline-primary btn-reduce control-button"
 					@click="reduceSentences"
 					:class="{ disabled: !canReduce }"
 			>
-				<i class="fa fa-compress"></i>
+				<i class="fa fa-minus"></i>
 			</button>
 
 			<button type="button"
+					title="Delete"
 					class="btn btn-outline-warning btn-remove control-button"
 					:class="{ disabled: !canRemove }"
 					@click="removeParagraph"

@@ -26,6 +26,7 @@ class StoreManager
 	{
 		return {
 			currentYear: currentYear,
+			linkToPortfolio: ltp,
 			mode: 'light',
 			defaultParagraphs: [
 				{
@@ -120,6 +121,10 @@ class StoreManager
 		return {
 			currentYear: function(state) {
 				return state.currentYear;
+			},
+
+			linkToPortfolio: function(state) {
+				return state.linkToPortfolio;
 			},
 
 			paragraphs: function(state) {

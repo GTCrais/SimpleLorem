@@ -24,6 +24,7 @@
 
 					<div class="d-flex flex-row justify-content-center mb-5">
 						<button type="button"
+								title="Add paragraph"
 								class="btn btn-outline-primary control-button btn-add"
 								@click="addParagraph"
 						>
@@ -36,6 +37,7 @@
 
 					<div class="reset-container d-flex justify-content-end">
 						<button type="button"
+								title="Reset"
 								class="btn btn-outline-warning btn-reset control-button"
 								:class="{ disabled: !paragraphsCookie }"
 								@click="reset"
@@ -46,6 +48,7 @@
 
 
 					<button type="button"
+							title="Copy all"
 							class="btn btn-outline-success btn-copy-all control-button"
 							@click="copyAll"
 					>
@@ -62,7 +65,11 @@
 
 			<footer class="row">
 				<div class="col-12 col-lg-8 text-center">
-					&copy; {{ currentYear }} Simple Lorem by <!--<a href="https://gtcrais.net" target="_blank">GTCrais</a>--> GTCrais
+					&copy; {{ currentYear }} Simple Lorem by
+
+					<a v-if="linkToPortfolio" href="https://gtcrais.net" target="_blank">GTCrais</a>
+
+					<span v-else>GTCrais</span>
 				</div>
 			</footer>
 		</div>
@@ -164,7 +171,7 @@
 
 			toggleMode: function() {
 				this.$store.commit('toggleMode');
-				this.$cookie.set('slmode', this.$store.getters.mode);
+				this.$cookie.set('slmode', this.$store.getters.mode, { expires: '2Y' });
 			},
 
 			setInitMode: function() {
@@ -214,6 +221,10 @@
 
 			currentYear: function() {
 				return this.$store.getters.currentYear;
+			},
+
+			linkToPortfolio: function() {
+				return this.$store.getters.linkToPortfolio;
 			},
 
 			mode: function() {

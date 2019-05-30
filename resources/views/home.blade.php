@@ -77,7 +77,7 @@
 		@endif
 
 
-		<script> var currentYear = {{ date('Y') }}; </script>
+		<script> var currentYear = {{ date('Y') }}; var ltp = !!{{ config('c.linkToPortfolio') ? 1 : 0 }}; </script>
 
 		<script src="/js/manifest.js?v={{ config('assetversioning.app.js') }}"></script>
 		<script src="/js/vendor.js?v={{ config('assetversioning.app.jsVendors') }}"></script>

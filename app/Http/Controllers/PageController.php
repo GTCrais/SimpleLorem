@@ -34,7 +34,7 @@ class PageController extends Controller
 
 	protected function metaKeywords()
 	{
-		return "simple lorem ipsum,simple lorem,lorem,ipsum,lorem ipsum,lorem ipsum dolor sit amet,lorem copy,lorem ipsum copy,simple lorem ipsum copy,lorem ipsum copy button,lorem ipsum with copy,lorem with copy,copy lorem ipsum";
+		return "simple lorem ipsum,simple lorem,lorem,ipsum,lorem ipsum,lorem ipsum dolor sit amet,lorem copy,lorem ipsum copy,simple lorem ipsum copy,lorem ipsum copy button,lorem ipsum with copy,lorem with copy,copy lorem ipsum,lorem ipsum generator,lorem ipsum paragraph,lorem ipsum text generator,dummy text generator,lorem ipsum dolor text,lorem ipsum dummy text";
 	}
 
 	protected function metaDescription()
