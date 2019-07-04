@@ -70,6 +70,8 @@
 					<a v-if="linkToPortfolio" href="https://gtcrais.net" target="_blank">GTCrais</a>
 
 					<span v-else>GTCrais</span>
+
+					:: View on <a href="https://github.com/GTCrais/SimpleLorem" target="_blank">GitHub</a>
 				</div>
 			</footer>
 		</div>
